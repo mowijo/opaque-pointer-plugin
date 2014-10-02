@@ -1,21 +1,38 @@
 #ifndef %ClassName:u%_H
 #define %ClassName:u%_H
+@if "%InheritsQObject%" == "true"
 
-#include <QAbstractListModel>
-#include <QList>
-
-class %ClassName% : public QAbstractListModel {
-    Q_OBJECT
+#include <QObject>
+  
+class %ClassName% : public QObject
+{  
+    
+  Q_OBJECT
+  
 public:
-    explicit %ClassName%(QObject *parent);
-    void addItems(const QList<%Datatype%> &items);
-
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+  explicit %ClassName%(QObject *parent = 0);
 
 private:
-    QList<%Datatype%> items;
+  friend class %ClassName%Private;
+  class %ClassName%Private *d;
 };
+@else
+
+class %ClassName% 
+{  
+    
+public:
+
+  %ClassName%();
+  %ClassName%(const %ClassName% &other);
+  %ClassName%& operator=(%ClassName% &rhs);
+  ~%ClassName%();
+
+
+private:
+  friend class %ClassName%Private;
+  class %ClassName%Private *d;
+};
+@endif
 
 #endif // %ClassName:u%_H
-

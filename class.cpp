@@ -1,23 +1,69 @@
-#include "%ClassName:l%.%CppHeaderSuffix%"
+#include "%ClassName%.%CppHeaderSuffix%"
 
-%ClassName%::%ClassName%(QObject *parent) :
-    QAbstractListModel(parent)
+@if "%InheritsQObject%" == "true"
+class %ClassName%Private : public QObject
 {
+  
+  Q_OBJECT
+  
+    %ClassName% *owner;
+
+public:
+
+    %ClassName%Private(%ClassName% *o)
+        : QObject(o), owner(o)
+    {
+    }
+
+};
+
+#include "%ClassName%.moc"
+
+
+%ClassName%::%ClassName%(QObject *parent) 
+  : QObject(parent)
+{
+    d = new %ClassName%Private(this);
 }
 
-void %ClassName%::addItems(const QList<%Datatype%> &newItems)
+@else
+class %ClassName%Private
 {
-    beginInsertRows(QModelIndex(), items.size(), items.size() + newItems.size());
-    items.append(newItems);
-    endInsertRows();
+    %ClassName% *owner;
+
+public:
+
+    %ClassName%Private(%ClassName% *o)
+        : owner(o)
+    {
+    }
+
+    void copyFrom(%ClassName%Private *other)
+    {
+    }
+};
+
+%ClassName%::%ClassName%()
+{
+    d = new %ClassName%Private(this);
 }
 
-int %ClassName%::rowCount(const QModelIndex &) const
+%ClassName%::%ClassName%(const %ClassName% &other)
 {
-    return items.size();
+    d = new %ClassName%Private(this);
+    if(this == &other) return;
+    d->copyFrom(other.d);
 }
 
-QVariant %ClassName%::data(const QModelIndex &index, int) const
+%ClassName% &%ClassName%::operator=(%ClassName% &rhs)
 {
-    return items.at(index.row());
+    if(this == &rhs) return *this;
+    d->copyFrom(rhs.d);
+    return *this;
 }
+
+%ClassName%::~%ClassName%()
+{
+    delete d;
+}
+@endif
