@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- -->
 <wizard version="1" kind="class" id="A.Class With Opaque Pointer" category="B.CustomClasses">
     <description>Creates a class with a opaque pointer.</description>
-    <displayname>Class with Opaque Pointer</displayname>;
+    <displayname>C++ Class with Opaque Pointer</displayname>;
     <displaycategory>Custom Classes</displaycategory>
     <files>
         <file source="class.cpp" target="%ClassName%.%CppSourceSuffix%" openeditor="true"/>
         <file source="class.h" target="%ClassName%.%CppHeaderSuffix%" openeditor="true"/>
     </files>
     <!-- Create parameter wizard page -->
-    <fieldpagetitle>ListModel parameters</fieldpagetitle>
-    <fieldpagetitle xml:lang="de">Parameter des ListModel</fieldpagetitle>
+    <fieldpagetitle>Class Properties</fieldpagetitle>
     <fields>
         <field name="ClassName">
             <fieldcontrol class="QLineEdit" validator="^[a-zA-Z0-9_]+$" defaulttext="MyClass" placeholdertext="Enter a class name"/>
             <fielddescription>Class name:</fielddescription>
-            <fielddescription xml:lang="de">Klassenname:</fielddescription>
         </field>
         <field name="InheritsQObject">
             <fieldcontrol class="QCheckBox" defaultindex="0"></fieldcontrol>
             <fielddescription>Inherit QObject</fielddescription>
         </field>
     </fields>
-    <!-- Example of a validation rule -->
-    <validationrules>
-        <validationrule condition='"%ClassName%" != "QAbstractListModel"'>
-            <message>%ClassName% cannot be used as class name.</message>
-            <message xml:lang="de">%ClassName% kann nicht als Klassenname verwendet werden.</message>
-        </validationrule>
-    </validationrules>
 </wizard>
