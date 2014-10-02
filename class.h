@@ -25,6 +25,9 @@ public:
 
   %ClassName%();
   %ClassName%(const %ClassName% &other);
+@if "%MoveConstructor%" == "true"
+  %ClassName%(%ClassName%&& other);
+@endif
   %ClassName%& operator=(%ClassName% &rhs);
   ~%ClassName%();
 

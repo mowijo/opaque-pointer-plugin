@@ -18,5 +18,9 @@
             <fieldcontrol class="QCheckBox" defaultindex="0"></fieldcontrol>
             <fielddescription>Inherit QObject</fielddescription>
         </field>
+        <field name="MoveConstructor">
+            <fieldcontrol class="QCheckBox" defaultindex="0"></fieldcontrol>
+            <fielddescription>Add Move Constructor</fielddescription>
+        </field>
     </fields>
 </wizard>
