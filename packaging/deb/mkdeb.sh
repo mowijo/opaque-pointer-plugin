@@ -7,12 +7,12 @@ CHANGE_LOG_FILE=$WD"/usr/share/doc/qtcreator-plugin-wizard-opaque-class/changelo
 rm -rf $WD
 mkdir -p $WD/usr/share/qtcreator/templates/wizards/opaque-class
 mkdir -p $USR_SHARE_DOCS
-cp src/* $WD/usr/share/qtcreator/templates/wizards/opaque-class/
+cp ../../src/* $WD/usr/share/qtcreator/templates/wizards/opaque-class/
 cp -rf DEBIAN $WD
-cp copyright.txt $USR_SHARE_DOCS/copyright
+cp ../../copyright.txt $USR_SHARE_DOCS/copyright
 find $WD -type d | xargs chmod 755 
 #gzip -c changelog.txt > $CHANGE_LOG_FILE
-gzip --best -c changelog.txt > changelog.Debian.gz
+gzip --best -c ../../changelog.txt > changelog.Debian.gz
 mv changelog.Debian.gz $USR_SHARE_DOCS
 chmod 0644 $USR_SHARE_DOCS/*
 fakeroot dpkg-deb --build $WD
