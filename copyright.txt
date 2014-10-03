@@ -3,7 +3,7 @@ qtcreator-plugin-wizard-opaque-class
 Copyright 2014 Morten W. Jørgensen <morten@winkler.dk>
 
 The home page of the Opaque class plugin for Qt Creator is at: 
-http://asdfasdf.asdf.dk
+https://github.com/mowijo/opaque-pointer-plugin
 
 This code is released under the Apache License 2.0
 
