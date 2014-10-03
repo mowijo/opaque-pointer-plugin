@@ -1,0 +1,10 @@
+Package: qtcreator-plugin-wizard-opaque-class
+Version: 1.0-1
+Section: devel
+Priority: optional
+Architecture: all
+Depends: qtcreator (>= 3.0.0)
+Maintainer: Morten Winkler Jørgensen <morten@winkler.dk>
+Description: Linux system information
+ This script provides a broad overview of different
+ system aspects.
