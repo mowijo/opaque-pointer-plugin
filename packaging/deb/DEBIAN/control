@@ -5,6 +5,7 @@ Priority: optional
 Architecture: all
 Depends: qtcreator (>= 3.0.0)
 Maintainer: Morten Winkler Jørgensen <morten@winkler.dk>
-Description: Linux system information
- This script provides a broad overview of different
- system aspects.
+Description: File Creation Wizard for QtCreator
+  This package provides a wizard for the QtCreator IDE
+  that creates classes with opaque pointers, move
+  constructors and/or QObject specialization.
