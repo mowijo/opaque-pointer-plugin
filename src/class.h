@@ -28,7 +28,7 @@ public:
 @if "%MoveConstructor%" == "true"
   %ClassName%(%ClassName%&& other);
 @endif
-  %ClassName%& operator=(%ClassName% &rhs);
+  %ClassName%& operator=(const %ClassName% &rhs);
   ~%ClassName%();
 
 

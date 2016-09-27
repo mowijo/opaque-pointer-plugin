@@ -62,7 +62,7 @@ public:
 }
 @endif
 
-%ClassName% &%ClassName%::operator=(%ClassName% &rhs)
+%ClassName% &%ClassName%::operator=(const %ClassName% &rhs)
 {
     if(this == &rhs) return *this;
     d->copyFrom(rhs.d);
