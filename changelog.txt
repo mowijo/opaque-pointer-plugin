@@ -1,5 +1,6 @@
 qtcreator-plugin-wizard-opaque-class (1:1.0.1) trusty; urgency=low
 
   * Initial release
+  * Fixed move constructor
 
- -- Morten Winkler Jørgensen <morten@winkler.dk>  Wed, 11 Dec 2013 05:38:30 -0700
+ -- Morten Winkler Jorgensen <morten@winkler.dk>  Wed, 11 Dec 2013 05:38:30 -0700
